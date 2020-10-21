@@ -104,6 +104,7 @@ robby <- function(mcmc_r, map_r, config_r, cnfg_str_r, data_r, cret_r = configur
     }
   }
 
+  #hi
 
   if(cnfg_str_r$data_structure == "Normal"){
     if(cnfg_str_r$historic == TRUE){
