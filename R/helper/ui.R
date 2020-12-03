@@ -2,7 +2,11 @@
 
 # Header ####
 
-header <- dashboardHeader(title = "MAP Priors")
+header <- dashboardHeader(
+  title = "MAP Priors",
+  tags$li(class = "dropdown", tags$a(HTML(paste(textOutput("gen_info"), "Endpoint"))))
+  )
+  
 
 # Sidebar ####
 
@@ -10,7 +14,7 @@ sidebar <-   dashboardSidebar(sidebarMenu(
   menuItem(
     "Main Page",
     tabName = "General",
-    icon = icon("info-circle")
+    icon = icon("home")
   ),
   menuItem("Upload Data", tabName = "TabData", icon = icon("table")),
   menuItem(
@@ -19,10 +23,25 @@ sidebar <-   dashboardSidebar(sidebarMenu(
     icon = icon("edit")
   ),
   menuItem(
-    "Outpt",
+    "Change MCMC Settings",
+    tabName = "mcmc",
+    icon = icon("dice")
+  ),
+  menuItem(
+    "Fit the model",
     tabName = "Output",
     icon = icon("digital-tachograph")
-  )
+  ),
+  menuItem(
+    "Download Results",
+    tabName = "Download",
+    icon = icon("file-download")
+  ),
+  menuItem(
+    "Help",
+    tabName = "Help",
+    icon = icon("info-circle")
+     )
 ))
 
 # body ####
@@ -31,8 +50,11 @@ body <- dashboardBody(tabItems(
   # First tab content
   ui_general,
   ui_upload,
-  ui_nec_config,
-  ui_outti
+  ui_rec_config,
+  ui_mcmc,
+  ui_outti,
+  ui_download,
+  ui_help
 
 ))
 

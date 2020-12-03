@@ -1,0 +1,35 @@
+---
+title: "Untitled"
+author: "Stemke, Alexander"
+date: "27 10 2020"
+output: word_document
+params:
+  out1: NULL
+  out2: NULL
+  struc: NA
+  n_arms: NA
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Meta Analytic Predcitive Prior
+
+This report is automatically generated and provides MAP Priors for a `r struc` endpoint with `r `.
+
+
+```{r cars}
+plot(out1[[1]])$`forest_model`
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+4+5
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
