@@ -1,0 +1,215 @@
+---
+title: "Generalized Meta Analytic Predictive Prior"
+date: "`r Sys.Date()`"
+output: word_document
+params:
+  out1: NULL
+  out2: NULL
+  struc: NA
+  n_arms: NA
+  historic_1: FALSE
+  historic_2: FALSE
+  detail_0: TRUE
+  detail_1: TRUE
+  detail_2: TRUE
+  detail_3: TRUE
+  detail_4: TRUE
+  detail_5: TRUE
+  detail_6: TRUE
+  err_1: NULL
+  err_2: NULL
+  war_1: NULL
+  war_2: NULL
+  msg_1: NULL
+  msg_2: NULL
+
+  
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(RBesT)
+
+```
+
+## Meta Analytic Predcitive Prior
+
+This report is automatically generated and provides MAP Priors for a `r params$struc` endpoint with `r params$n_arms` fitted models.
+
+The models were fitted with `r packageDescription("RBesT")$Package` Version `r packageDescription("RBesT")$Version`.
+
+
+
+
+```{r out_1_messages, echo = FALSE }
+if(!is.null(params$out1)){
+  print("Everything regarding the first arm.")
+  if(!is.null(params$err_1)){
+    print("A severe error occured.")
+    print(params$err_1)
+  }
+    if(!is.null(params$war_1)){
+    print("A severe warning occured.")
+    print(params$war_1)
+    }
+    if(!is.null(params$msg_1)){
+    print("Please mind the following:")
+    print(params$msg_1)
+  }
+}
+
+```
+
+
+```{r out1_detail_2, echo = FALSE}
+if(params$detail_2 == TRUE && !is.null(params$out1)){
+print(out1[[2]])  
+}
+```
+
+```{r out1_forest, fig.cap = "Forest Model for the first arm" ,echo = FALSE}
+if(params$detail_0 == TRUE) {
+  if (params$historic_1 == TRUE && !is.null(params$out1)) {
+    plot(params$out1[[1]])$`forest_model`
+  }
+}
+
+```
+
+```{r out1_detail_1, echo = FALSE}
+if(params$detail_1 == TRUE && !is.null(params$out1)){
+print(out1[[1]])  
+}
+```
+
+```{r out1_prior, fig.cap = "Prior plot for the first arm" ,echo = FALSE}
+if(!is.null(params$out1) && params$detail_0 == TRUE){
+  plot(params$out1[[3]][[]])
+  }
+```
+
+```{r out1_detail_3, echo = FALSE}
+if(params$detail_3 == TRUE && !is.null(params$out1)){
+print(params$out1[[3]])  
+}
+```
+
+```{r out1_dist, echo = FALSE}
+if(!is.null(params$out1)){
+  dist.text(params$out1[[3]])
+}
+
+```
+
+```{r out1_detail_5, echo = FALSE}
+
+if(!is.null(params$out1) && params$detail_5 == TRUE){
+  print(params$out1[[4]])
+  print(params$out1[[5]])
+}
+
+```
+
+```{r out_1_detail_6, echo = FALSE}
+
+if(!is.null(params$out1) && params$detail_6 == TRUE){
+  print("GoNoGo App friendly Input")
+  print(params$out1[[8]])
+}
+
+```
+
+
+
+#############################################################
+
+```{r out_2_messages, echo = FALSE }
+if(!is.null(params$out2)){
+  print("Everything regarding the second arm.")
+  if(!is.null(params$err_2)){
+    print("A severe error occured.")
+    print(params$err_2)
+  }
+    if(!is.null(params$war_2)){
+    print("A severe warning occured.")
+    print(params$war_2)
+    }
+    if(!is.null(params$msg_2)){
+    print("Please mind the following:")
+    print(params$msg_2)
+  }
+}
+
+```
+
+
+```{r out2_detail_2, echo = FALSE}
+if(params$detail_2 == TRUE && !is.null(params$out2)){
+print(out2[[2]])  
+}
+```
+
+```{r out2_forest, fig.cap = "Forest Model for the first arm" ,echo = FALSE}
+if(params$detail_0 == TRUE) {
+  if (params$historic_2 == TRUE && !is.null(params$out2)) {
+    plot(params$out2[[1]])$`forest_model`
+  }
+}
+
+```
+
+```{r out2_detail_1, echo = FALSE}
+if(params$detail_2 == TRUE && !is.null(params$out2)){
+print(out2[[1]])  
+}
+```
+
+```{r out2_prior, fig.cap = "Prior plot for the first arm" ,echo = FALSE}
+if(!is.null(params$out2) && params$detail_0 == TRUE){
+  plot(params$out2[[3]][[]])
+  }
+```
+
+```{r out2_detail_3, echo = FALSE}
+if(params$detail_3 == TRUE && !is.null(params$out2)){
+print(params$out2[[3]])  
+}
+```
+
+```{r out2_dist, echo = FALSE}
+if(!is.null(params$out2)){
+  dist.text(params$out2[[3]])
+}
+
+```
+
+```{r out2_detail_5, echo = FALSE}
+
+if(!is.null(params$out2) && params$detail_5 == TRUE){
+  print(params$out2[[4]])
+  print(params$out2[[5]])
+}
+
+```
+
+
+```{r out_2_detail_6, echo = FALSE}
+
+if(!is.null(params$out2) && params$detail_6 == TRUE){
+  print("GoNoGo App friendly Input")
+  print(params$out2[[8]])
+}
+
+```
+
+#############################################################
+
+
+```{r error, echo = FALSE}
+
+if(is.null(params$out1) && is.null(params$out1)){
+  print("Ooops, it seems, that both models are empty. If you changed an essential setting before you downloaded the results, you need to calculate the prios again.")
+}
+
+```

@@ -10,14 +10,15 @@ ui_rec_config <-   tabItem(
         sidebarLayout(
           sidebarPanel(
             conditionalPanel(
-              condition = "input.data_structure == 'Normal'|| input.data_structure == 'TTE'",
+              condition = "input.endpoint_type == 'Normal'|| input.endpoint_type == 'TTE'",
               numericInput("sigma_1", "Population Standard Deviation", NA)),
             numericInput("tau_1", "Tau Prior", NA, min = 0, step = 0.05),
             numericInput("Nc_min_1", "Mixture components minimum", 1, min = 1),
-            numericInput("Nc_max_1", "Mixture components maximum", 5, min = 1)
+            numericInput("Nc_max_1", "Mixture components maximum", 5, min = 1),
+            checkboxInput("weight_1", "Weighting the studies", TRUE)
           ),
           
-         mainPanel(rHandsontableOutput("data_1_0"))
+         mainPanel(tableOutput("tau_recom_1"))
         )
       )
       ),
@@ -28,23 +29,27 @@ ui_rec_config <-   tabItem(
           sidebarPanel(
             conditionalPanel(condition = "input.n_arms >=  2",
                              conditionalPanel(
-                               condition = "input.data_structure == 'Normal' || input.data_structure == 'TTE'",
+                               condition = "input.endpoint_type == 'Normal' || input.endpoint_type == 'TTE'",
                                numericInput("sigma_2", "Population Standard Deviation", NA)),
                              numericInput("tau_2", "Tau Prior", NA, min = 0, step = 0.05),
                              numericInput("Nc_min_2", "Mixture components minimum", 1, min = 1),
-                             numericInput("Nc_max_2", "Mixture components maximum", 5, min = 1)
+                             numericInput("Nc_max_2", "Mixture components maximum", 5, min = 1),
+                             checkboxInput("weight_2", "weighting the studies", TRUE)
             )
             
           ),
           
-          # Main panel for displaying outputs ----
-          mainPanel(# Output: Data file ----
-                    tableOutput("data_2_1"))
+          mainPanel(
+            conditionalPanel(
+              condition = "input.n_arms >= 2",
+              tableOutput("tau_recom_2")
+            ))
           
         )
       ))
     ),
-    verbatimTextOutput("txt_recommended_configurations")
+    div(txt_recommended_configurations)
+    
   )
 
 )

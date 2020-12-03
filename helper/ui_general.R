@@ -4,21 +4,19 @@ ui_general <- tabItem(tabName = "General",
                         fluidRow(
                           box(
                             selectInput(
-                              inputId = "data_structure",
-                              label = "Datastructure",
+                              inputId = "endpoint_type",
+                              label = "Endpoint Type",
                               choices = c("Binary", "Normal", "TTE")
                             )
                           ),
                           box(
-                            numericInput(
+                            selectInput(
                               inputId = "n_arms",
-                              label = "Number of arms",
-                              1, min = 1, max = 2
+                              label = "Number of models to fit",
+                              choices = c(1,2)
                             )
                           )
-                          
                         ),
-                        verbatimTextOutput("txt_main_page")
-                        
+                        div(txt_main_page)
                       )
 )
