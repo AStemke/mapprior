@@ -9,7 +9,7 @@
 #
 
 
-wd <- "C:/R-4.0.2/Shiny_MAP_Prior"
+wd <- "C:/R-4.0.2/mapprior/R"
 wd_helper <- paste0(wd, "/helper") 
 setwd(wd_helper)
 

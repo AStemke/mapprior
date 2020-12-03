@@ -46,20 +46,30 @@ The models were fitted with `r packageDescription("RBesT")$Package` Version `r p
 if(!is.null(params$out1)){
   print("Everything regarding the first arm.")
   if(!is.null(params$err_1)){
-    print("A severe error occured.")
-    print(params$err_1)
+    
+    cat(print("A severe error occured."))
+    
+    cat(print(params$err_1))
   }
+  
     if(!is.null(params$war_1)){
+      
     print("A severe warning occured.")
-    print(params$war_1)
+      
+    cat(print(params$war_1))
+    
     }
     if(!is.null(params$msg_1)){
+      
     print("Please mind the following:")
+      
     print(params$msg_1)
+    
   }
 }
 
 ```
+
 
 
 ```{r out1_detail_2, echo = FALSE}
@@ -107,6 +117,7 @@ if(!is.null(params$out1)){
 if(!is.null(params$out1) && params$detail_5 == TRUE){
   print(params$out1[[4]])
   print(params$out1[[5]])
+  print(params$out1[[6]])
 }
 
 ```
@@ -126,22 +137,34 @@ if(!is.null(params$out1) && params$detail_6 == TRUE){
 
 ```{r out_2_messages, echo = FALSE }
 if(!is.null(params$out2)){
+  
   print("Everything regarding the second arm.")
+  
   if(!is.null(params$err_2)){
+    
     print("A severe error occured.")
+    
     print(params$err_2)
+    
   }
     if(!is.null(params$war_2)){
+      
     print("A severe warning occured.")
+      
     print(params$war_2)
+    
     }
     if(!is.null(params$msg_2)){
+      
     print("Please mind the following:")
+      
     print(params$msg_2)
+    
   }
 }
 
 ```
+
 
 
 ```{r out2_detail_2, echo = FALSE}
@@ -189,6 +212,7 @@ if(!is.null(params$out2)){
 if(!is.null(params$out2) && params$detail_5 == TRUE){
   print(params$out2[[4]])
   print(params$out2[[5]])
+  print(params$out2[[6]])
 }
 
 ```
