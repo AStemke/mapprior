@@ -21,8 +21,6 @@ if(!require(shinyBS)){install.packages("shinyBS")}
 if(!require(reactlog)){installed.packages("reactlog")}
 if(!require(RBesT)){install.packages("RBesT")}
 
-
-
 library(shiny)
 library(shinydashboard)
 library(shinydashboardPlus)
