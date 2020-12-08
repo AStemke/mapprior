@@ -48,18 +48,21 @@ MAP.Prior.shiny <- function(data, config, cnfg_str, mcmc_cnfg = NULL, configar =
     
     # Set the datasets to necessary names
     data <- as.data.frame(wip[[1]]) 
+    jojo <<- data
     
     #Default if no recommended configuration is provided
     config <- wip[[2]]
+    joco <<- config
     
      if(cnfg_str$endpoint_type == "Binary"){
 
-      mcmc <- gMAP(cbind(n, n-r) ~ 1 | study,
+      mcmc <- gMAP(cbind(r, n-r) ~ 1 | study,
                    data = data,
                    family = binomial,
                    tau.dist = "HalfNormal",
                    tau.prior = config$tau,
                    beta.prior = config$sigma)
+
       
       map <- automixfit(mcmc, type = "beta", Nc = config$Nc_min:config$Nc_max)
       
